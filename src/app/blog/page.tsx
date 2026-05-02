@@ -67,7 +67,7 @@ export default async function BlogPage() {
             <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm sticky top-28">
               <h3 className="font-bold text-text-dark mb-4">Kategori</h3>
               <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
+                {categories.map((cat: string) => (
                   <span
                     key={cat}
                     className="bg-bg-light text-primary text-xs font-bold px-3 py-1.5 rounded-full"
