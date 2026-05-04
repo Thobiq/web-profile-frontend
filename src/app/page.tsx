@@ -22,13 +22,10 @@ const getIconForCategory = (category: string) => {
 export default async function Home() {
   // Fetch data concurrently
   const [profileRes, projectsRes, skillsRes] = await Promise.all([
-    fetchAPI('/profile'),
-    fetchAPI('/projects', { 'pagination[limit]': '2', 'sort[0]': 'createdAt:desc', 'populate': '*' }),
-    fetchAPI('/skills', { 'sort[0]': 'createdAt:asc' })
-  ]).catch(err => {
-    console.error(err);
-    return [{ data: null }, { data: [] }, { data: [] }];
-  });
+    fetchAPI('/profile').catch(err => { console.error('Profile fetch error:', err); return { data: null }; }),
+    fetchAPI('/projects', { 'pagination[limit]': '2', 'sort[0]': 'createdAt:desc', 'populate': '*' }).catch(err => { console.error('Projects fetch error:', err); return { data: [] }; }),
+    fetchAPI('/skills', { 'sort[0]': 'createdAt:asc' }).catch(err => { console.error('Skills fetch error:', err); return { data: [] }; })
+  ]);
 
   const profile = profileRes.data || {
     intro: "an IT Infrastructure Enthusiast",

@@ -1,5 +1,5 @@
 export function getStrapiURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337"
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "https://admin.thobiq.web.id"
     }${path}`;
 }
 
@@ -16,6 +16,7 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
     headers: {
       "Content-Type": "application/json",
     },
+    next: { revalidate: 60 },
     ...options,
   };
 

@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'api.thobiq.web.id',
+        hostname: 'admin.thobiq.web.id',
         pathname: '/uploads/**',
       },
     ],
