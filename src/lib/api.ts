@@ -1,5 +1,5 @@
 export function getStrapiURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "https://admin.thobiq.web.id"
     }${path}`;
 }
 
