@@ -27,7 +27,7 @@ export default function Navbar() {
               src="/logo-color.png"
               alt="Logo Thobiq"
               width={100}
-              height={100}
+              height={0}
               className="object-contain"
             />
           </span>
