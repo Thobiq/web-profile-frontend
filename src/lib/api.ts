@@ -1,5 +1,5 @@
 export function getStrapiURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "https://admin.thobiq.web.id"
+  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"
     }${path}`;
 }
 
@@ -31,8 +31,7 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
 
   // Handle response
   if (!response.ok) {
-    console.error(response.statusText);
-    throw new Error(`An error occurred please try again`);
+    throw new Error(`API Error: ${response.status} ${response.statusText} for ${path}`);
   }
   const data = await response.json();
   return data;

@@ -13,7 +13,7 @@ export default function BlogSlider({ featuredBlogs }: { featuredBlogs: any[] }) 
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % featuredBlogs.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 2500); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [featuredBlogs.length]);
@@ -21,7 +21,7 @@ export default function BlogSlider({ featuredBlogs }: { featuredBlogs: any[] }) 
   if (!featuredBlogs || featuredBlogs.length === 0) return null;
 
   return (
-    <div className="relative w-full aspect-[21/9] md:aspect-[3/1] rounded-3xl overflow-hidden mb-12 shadow-md bg-gray-900 group">
+    <div className="relative w-full aspect-video md:aspect-[21/9] lg:aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-md bg-gray-900 group">
       {featuredBlogs.map((blog, index) => (
         <div
           key={blog.documentId || blog.id}

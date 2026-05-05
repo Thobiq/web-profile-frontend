@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 
 export default function Footer() {
@@ -7,7 +8,13 @@ export default function Footer() {
       <div className="max-w-[1000px] mx-auto px-4 md:px-8 py-12 flex flex-col md:flex-row justify-between items-center md:items-start gap-8 border-t border-gray-100">
         <div className="flex-1">
           <Link href="/" className="font-bold text-3xl text-primary italic tracking-tighter">
-            THOBIQ
+            <Image
+              src="/logo-color.png"
+              alt="Logo Thobiq"
+              width={200}
+              height={200}
+              className="object-contain"
+            />
           </Link>
         </div>
         

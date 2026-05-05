@@ -79,7 +79,7 @@ export default async function Home() {
       </section>
 
       {/* Marquee Section */}
-      <section className="w-full bg-primary py-4 -mx-4 md:-mx-8 px-4 md:px-8 mb-20 overflow-hidden relative">
+      <section className="bg-primary py-4 -mx-4 md:-mx-8 px-4 md:px-8 mb-20 overflow-hidden relative">
         <div className="whitespace-nowrap flex animate-[marquee_20s_linear_infinite]">
           {/* Repeat content for smooth infinite scroll */}
           {[1, 2, 3].map((_, i) => (
@@ -121,7 +121,7 @@ export default async function Home() {
               <h3 className="text-xl font-bold text-text-dark mb-4">{project.title}</h3>
               <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-gray-50 flex-grow">
                 <Image
-                  src={getStrapiMedia(project.image) || "/project1.png"}
+                  src={getStrapiMedia(project.image) || "/temp_image.png"}
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

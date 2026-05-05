@@ -51,7 +51,7 @@ export default async function ProjectsPage() {
               <h3 className="text-xl font-bold text-text-dark mb-4">{project.title}</h3>
               <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-gray-50 flex-grow">
                 <Image
-                  src={getStrapiMedia(project.image) || "/project1.png"}
+                  src={getStrapiMedia(project.image) || "/temp_image.png"}
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

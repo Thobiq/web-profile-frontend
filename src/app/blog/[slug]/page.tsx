@@ -72,9 +72,9 @@ export default async function BlogDetailPage({
       </div>
 
       {/* Banner Image */}
-      <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden mb-12 shadow-sm border border-gray-100 bg-gray-50">
+      <div className="relative w-full aspect-video md:aspect-[21/9] lg:aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-sm border border-gray-100 bg-gray-50">
         <Image
-          src={getStrapiMedia(blog.image) || "/blog.png"}
+          src={getStrapiMedia(blog.image) || "/temp_image.png"}
           alt={blog.title}
           fill
           className="object-cover"
@@ -83,7 +83,7 @@ export default async function BlogDetailPage({
       </div>
 
       {/* Content */}
-      <article className="prose prose-lg max-w-none text-text-gray leading-relaxed prose-headings:text-text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+      <article className="prose prose-lg text-justify max-w-none text-text-gray leading-relaxed prose-headings:text-text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
         {blog.content && blog.content.length > 0 ? (
           <BlocksRenderer content={blog.content} />
         ) : (

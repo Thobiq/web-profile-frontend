@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({
           <div className="bg-bg-light p-6 md:p-8 rounded-3xl border border-gray-100 flex flex-col items-center">
             <div className="w-full relative aspect-[4/3] rounded-xl overflow-hidden shadow-sm mb-8 border border-white">
               <Image
-                src={getStrapiMedia(project.image) || "/project1.png"}
+                src={getStrapiMedia(project.image) || "/temp_image.png"}
                 alt={project.title}
                 fill
                 className="object-cover"

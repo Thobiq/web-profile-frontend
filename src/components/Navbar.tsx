@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -21,7 +22,15 @@ export default function Navbar() {
     <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-[1000px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
         <Link href="/" className="font-bold text-2xl text-primary flex items-center gap-1 italic" onClick={() => setIsMobileMenuOpen(false)}>
-          <span className="tracking-tighter">THOBIQ</span>
+          <span className="tracking-tighter">
+            <Image
+              src="/logo-color.png"
+              alt="Logo Thobiq"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
+          </span>
         </Link>
         
         {/* Desktop Nav */}
