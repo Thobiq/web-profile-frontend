@@ -11,8 +11,8 @@ export default async function ProjectsPage() {
   const categories = ["All", "Website", "Server", "IoT", "Networking"];
   const activeCategory = "All"; // Still mock for server-component, filtering can be client-side later
 
-  const projectsRes = await fetchAPI('/projects', { 'populate': '*' }).catch(() => ({ data: [] }));
-  const projects = projectsRes.data || [];
+  const projectsRes = await fetchAPI('/projects', { 'populate': '*' });
+  const projects = (projectsRes && projectsRes.data) || [];
 
   return (
     <div className="flex flex-col h-full">

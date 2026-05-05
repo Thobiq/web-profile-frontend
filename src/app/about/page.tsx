@@ -7,8 +7,8 @@ export const metadata = {
 };
 
 export default async function AboutPage() {
-  const profileRes = await fetchAPI('/profile').catch(() => ({ data: null }));
-  const profile = profileRes.data || {
+  const profileRes = await fetchAPI('/profile');
+  const profile = (profileRes && profileRes.data) || {
     currentStatus: "Server Administrator Internship at mascitra.com",
     aboutMe: "Mahasiswa Teknologi Informasi Universitas Jember yang adaptif dan berdedikasi tinggi, dengan keahlian komprehensif di bidang Infrastruktur TI dan Jaringan Komputer",
     passion: "Membangun ekosistem digital dengan presisi teknis. Spesialis dalam infrastruktur cloud berperforma tinggi dan antarmuka pengguna yang elegan.",

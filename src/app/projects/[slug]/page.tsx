@@ -19,9 +19,9 @@ export default async function ProjectDetailPage({
   const projectRes = await fetchAPI('/projects', {
     'filters[slug][$eq]': slug,
     'populate': '*'
-  }).catch(() => ({ data: [] }));
+  });
   
-  const project = projectRes.data?.[0] || {
+  const project = (projectRes && projectRes.data)?.[0] || {
     title: "Project Not Found",
     category: "UNKNOWN",
     description: "The requested project could not be found.",

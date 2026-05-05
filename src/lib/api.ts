@@ -27,14 +27,20 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
   )}`;
 
   // Trigger API call
-  const response = await fetch(requestUrl, mergedOptions);
+  try {
+    const response = await fetch(requestUrl, mergedOptions);
 
-  // Handle response
-  if (!response.ok) {
-    throw new Error(`API Error: ${response.status} ${response.statusText} for ${path}`);
+    // Handle response
+    if (!response.ok) {
+      console.error(`API Error: ${response.status} ${response.statusText} for ${path}`);
+      return null;
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Fetch failed for ${path}:`, error);
+    return null;
   }
-  const data = await response.json();
-  return data;
 }
 
 /**

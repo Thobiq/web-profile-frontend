@@ -10,15 +10,15 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const categoriesRes = await fetchAPI('/categories').catch(() => ({ data: [] }));
-  const categories = categoriesRes.data?.map((cat: any) => cat.name) || [
+  const categoriesRes = await fetchAPI('/categories');
+  const categories = (categoriesRes && categoriesRes.data)?.map((cat: any) => cat.name) || [
     "#Server", "#Networking", "#UI/UX", "#Design", "#IoT", 
     "#Frontend", "#Backend", "#Artificial Intelligence", 
     "#Data Science", "#Machine Learning"
   ];
 
-  const blogsRes = await fetchAPI('/blogs', { 'populate': '*', 'sort[0]': 'createdAt:desc' }).catch(() => ({ data: [] }));
-  const blogs = blogsRes.data || [];
+  const blogsRes = await fetchAPI('/blogs', { 'populate': '*', 'sort[0]': 'createdAt:desc' });
+  const blogs = (blogsRes && blogsRes.data) || [];
   
   const featuredBlogs = blogs.slice(0, 3); // Get top 3 latest blogs
 

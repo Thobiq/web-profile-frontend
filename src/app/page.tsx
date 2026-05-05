@@ -22,18 +22,18 @@ const getIconForCategory = (category: string) => {
 export default async function Home() {
   // Fetch data concurrently
   const [profileRes, projectsRes, skillsRes] = await Promise.all([
-    fetchAPI('/profile').catch(err => { console.error('Profile fetch error:', err); return { data: null }; }),
-    fetchAPI('/projects', { 'pagination[limit]': '2', 'sort[0]': 'createdAt:desc', 'populate': '*' }).catch(err => { console.error('Projects fetch error:', err); return { data: [] }; }),
-    fetchAPI('/skills', { 'sort[0]': 'createdAt:asc' }).catch(err => { console.error('Skills fetch error:', err); return { data: [] }; })
+    fetchAPI('/profile'),
+    fetchAPI('/projects', { 'pagination[limit]': '2', 'sort[0]': 'createdAt:desc', 'populate': '*' }),
+    fetchAPI('/skills', { 'sort[0]': 'createdAt:asc' })
   ]);
 
-  const profile = profileRes.data || {
+  const profile = (profileRes && profileRes.data) || {
     intro: "an IT Infrastructure Enthusiast",
     aboutMe: "Membangun ekosistem digital dengan presisi teknis. Spesialis dalam infrastruktur cloud berperforma tinggi dan antarmuka pengguna yang elegan.",
   };
   
-  const projects = projectsRes.data || [];
-  const skills = skillsRes.data || [];
+  const projects = (projectsRes && projectsRes.data) || [];
+  const skills = (skillsRes && skillsRes.data) || [];
 
   return (
     <div className="flex flex-col pb-20">

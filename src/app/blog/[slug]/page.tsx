@@ -20,9 +20,9 @@ export default async function BlogDetailPage({
   const blogRes = await fetchAPI('/blogs', {
     'filters[slug][$eq]': slug,
     'populate': '*'
-  }).catch(() => ({ data: [] }));
+  });
   
-  const blog = blogRes.data?.[0] || {
+  const blog = (blogRes && blogRes.data)?.[0] || {
     title: "Blog Not Found",
     date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
     likes: 0,
